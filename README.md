@@ -44,11 +44,18 @@ The project can be viewed here:
 
 As a first time user I want to be able to:
 
-* View a range of walking tours in the matlock bath area
-* Know the dates and timings of the tours
-* Understand the prices of the tours
-* Understand what is included in the price of the tour
-* Gain further insight into the area 
+* view a range of tours
+* view individual tour details
+* understand the prices of the tours
+
+As a registered user I want to be able to:
+
+* register for an account
+* login and logout of my account
+* receive an email confirmation after registration 
+* book and pay for a tour and receive confirmation
+
+
 
 ### Website Owner/Superuser
 
