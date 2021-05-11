@@ -43,9 +43,24 @@
 
     </head>
     <body>
+    <!-- Header -->
         <header class="container-fluid fixed-top">
+            <div class="row">
+                <!-- Logo -->
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                    <a class="navbar-brand" href="{% url 'home' %}"><i class="fas fa-hiking fa-lg" style="color:green;"></i>
+                        <h2 class="">Matlock Bath Tours</h2>
+                    </a>
+                </div>
+
+                <!-- Nav -->
+                <div class="col-12 col-lg-8 my-auto py-1 py-lg-0">
+
+                </div>
+            </div>
 
         </header>
+    <!-- /Header -->
 
         <!-- Display space for any flash messages from Django -->
          {% if messages %}
@@ -116,8 +131,8 @@
                  <div class="row d-flex align-items-center">
                      <div class="col-md-7 col-lg-8">
                          <!--Copyright-->
-                         <p class="text-center text-md-left">Copyright © 2021
-                             <a href="">
+                         <p class="text-md-left">Copyright © 2021
+                             <a href="{% url 'home' %}">
                                  <strong class="">Matlock Bath Tours</strong>
                              </a>
                          </p>
@@ -153,6 +168,6 @@
              </div>
              <!-- Footer Links -->
          </footer>
-        <!-- Footer -->
+        <!-- /Footer -->
     </body>
 </html>
