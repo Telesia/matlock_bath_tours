@@ -5,18 +5,19 @@
     <head>
 
         {% block meta %}
-        <meta http-equiv="X-UA-compatible" content="edge">
-        <meta charset="utf-8">
-        <meta name="description" content="A range of amazing walking tours in Matlock Bath">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta http-equiv="X-UA-compatible" content="edge">
+            <meta charset="utf-8">
+            <meta name="description" content="A range of amazing walking tours in Matlock Bath">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
         {% endblock %}
 
         {% block extrameta %}
         {% endblock %}
 
         {% block corecss %}
-        <!-- CSS -->
-         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+            <!-- CSS -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+            <link rel="stylesheet" href="{% static 'css/base.css' %}">
         {% endblock %}
 
         <!-- Fontawesome -->
@@ -40,9 +41,9 @@
     </head>
     <body>
     <!-- Header -->
-        <header class="container-fluid fixed-top">
+        <header class="">
             <!--Nav Bar-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <nav class="container-fluid fixed-top navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container">
                     <!-- Navbar logo -->
                     <a class="navbar-brand" href="{% url 'home' %}"><i class="fas fa-hiking fa-lg"></i>
