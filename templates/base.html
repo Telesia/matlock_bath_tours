@@ -62,18 +62,40 @@
                                 <a class="nav-link" href="">Tours</a>
                             </li>
                             <!-- Available IF user authenticated -->
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a href="" class="nav-link">Product Management</a>
+                                {% endif %}
                             <li class="nav-item active">
-                                <a class="nav-link" href="">Logout</a>
+                                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                             </li>
                             <!-- ElSE they can see this? -->
+                            {% else %}
                             <li class="nav-item active">
-                                <a class="nav-link" href="">Register</a>
+                                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="">Login</a>
+                                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                            </li>
+                            {% endif %}
+                            <li class="list-inline-item">
+                                <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+                                   href="">
+                                    <div class="text-center">
+                                        <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                        <p class="my-0">
+                                            {% if grand_total %}
+                                                ${{ grand_total|floatformat:2 }}
+                                            {% else %}
+                                                $0.00
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </a>
                             </li>
                         </ul>
                     </div>
+
                 </div>
             </nav>
         </header>
