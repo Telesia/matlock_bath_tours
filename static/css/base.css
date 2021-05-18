@@ -38,6 +38,17 @@ body {
     min-width: 260px;
 }
 
+/* ---------- Tours Page ----------*/
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: var(--mint);
+    z-index: -1;
+}
 /* ---------- Media Queries ----------*/
 
 @media (min-width: 992px) {
