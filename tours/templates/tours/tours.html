@@ -24,33 +24,35 @@
                     <div class="row mt-1 mb-2"></div>
                     <div class="row">
                         {% for tour in tours %}
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="col-sm-12 col-lg-4 clearfix">
                                 <div class="card h-100 border-0">
                                     {% if tour.image %}
-                                    <a href="">
+                                    <a href=" {% url 'tour_detail' tour.id %} ">
                                         <img class="card-img-top img-fluid" src="{{ tour.image.url }}" alt="{{ tour.name }}">
                                     </a>
                                     {% else %}
-                                    <a href="">
+                                    <a href="{% url 'tour_detail' tour.id %}">
                                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ tour.name }}">
                                     </a>
                                     {% endif %}
                                     <div class="card-body pb-0">
                                         <p class="mb-0">{{ tour.name }}</p>
+                                        <small class="mb-0">{{ tour.description }}</small>
                                     </div>
+
                                     <div class="card-footer bg-white pt-0 border-0 text-left">
                                         <div class="row">
                                             <div class="col">
                                                 <p class="lead mb-0 text-left font-weight-bold">${{ tour.price }}</p>
 
-                                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>/ 5</small>
-
-                                                    <small class="text-muted">No Rating</small>
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="col-12 d-lg-none">
+                                <hr class="w-50">
                             </div>
                         {% endfor %}
                     </div>

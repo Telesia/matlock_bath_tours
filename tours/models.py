@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Tour(models.Model):
+    """ Model for Tours in db"""
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
