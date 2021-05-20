@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{%  include 'navbar.html' %}
+
 
 {% block page_header %}
     <div class="container header-container">
@@ -11,6 +11,7 @@
 {% endblock %}
 
 {% block content %}
+    {% include "navbar.html" %}
     <div class="overlay"></div>
         <div class="container-fluid">
             <div class="row">

@@ -65,6 +65,10 @@ As a registered user I want to be able to:
 * Take payment for tours
 * Collect customer information for the tour to check against their details at start of tour.
 
+
+## Bugs
+1c5c4b7 - navbar disappeared across pages when changed to {%  include 'navbar.html' %} ?? 
+
 ## Credits
 
 ### Code
