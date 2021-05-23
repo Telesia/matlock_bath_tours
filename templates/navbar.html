@@ -16,10 +16,16 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'home' %}">Home</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'all_tours' %}">Tours</a>
+                <!-- Dropdown sorting feature -->
+                <li class="nav-item active dropdown">
+                    <a class="nav-link" href="#" id="all-tours-link" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">All Tours</a>
+                    <div class="dropdown-menu border-0" aria-labelledby="all-tours-link">
+                        <a href="{% url 'all_tours' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                        <a href="{% url 'all_tours' %}" class="dropdown-item">*All Tours*</a>
+                    </div>
                 </li>
-                <!-- Available IF user authenticated -->
+                <!-- Available IF user authenticated/superuser -->
                 {% if request.user.is_authenticated %}
                     {% if request.user.is_superuser %}
                         <a href="" class="nav-link">Product Management</a>
@@ -27,7 +33,6 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                     </li>
-                    <!-- ElSE they can see this? -->
                 {% else %}
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
