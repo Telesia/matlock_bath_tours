@@ -10,6 +10,7 @@ def all_tours(request):
     """ A view to show all tours, including sorting and search queries"""
 
     tours = Tour.objects.all()
+    query = None
 
     if request.GET:
         if 'q' in request.GET:
@@ -18,8 +19,12 @@ def all_tours(request):
                 messages.error(request, "Please search for a walking tour!")
                 return redirect(reverse('all_tours'))
 
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            tours = tours.filter(queries)
+
     context = {
         'tours': tours,
+        'search_terms': query,
     }
 
     return render(request, 'tours/tours.html', context)
