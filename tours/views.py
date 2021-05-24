@@ -40,7 +40,7 @@ def all_tours(request):
 
     context = {
         'tours': tours,
-        'search_terms': query,
+        'search_term': query,
         'current_sorting': current_sorting,
     }
 

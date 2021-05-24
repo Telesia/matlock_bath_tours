@@ -5,13 +5,15 @@
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
-            <div class="col"></div>
+            <div class="col">
+                <h2>test</h2>
+            </div>
         </div>
     </div>
 {% endblock %}
 
 {% block content %}
-    {% include "navbar.html" %}
+
     <div class="overlay"></div>
         <div class="container-fluid">
             <div class="row">
@@ -23,7 +25,44 @@
             </div>
             <div class="row">
                 <div class="tours-container col-10 offset-1">
-                    <div class="row mt-1 mb-2"></div>
+                <!-- Sort options/ search count feature -->
+                    <div class="row mt-1 mb-2">
+                        <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                            <div class="sort-select-wrapper w-50">
+                                <select id="sort-selector"
+                                        class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                                    <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>
+                                        Sort by...
+                                    </option>
+                                    <option value="price_asc"
+                                            {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to
+                                        high)
+                                    </option>
+                                    <option value="price_desc"
+                                            {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to
+                                        low)
+                                    </option>
+                                    <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>
+                                        Name (A-Z)
+                                    </option>
+                                    <option value="name_desc"
+                                            {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)
+                                    </option>
+
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6 order-md-first">
+                                <p class="text-muted mt-3 text-center text-md-left">
+                                    {% if search_term or current_sorting != 'None_None' %}
+                                        <span class="small"><a href="{% url 'home' %}">Return to search</a> | </span>
+                                    {% endif %}
+                                    {{ tours|length }} Tours{% if search_term %} found for
+                                    <strong>"{{ search_term }}"</strong>{% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                         {% for tour in tours %}
                             <div class="col-sm-12 col-lg-4 clearfix">
