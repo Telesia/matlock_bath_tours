@@ -74,7 +74,7 @@ As a registered user I want to be able to:
 2. b4ec991 - Fixed above navbar bug inside this commit. Action: move include tag to within the block content of pages where want
 the navbar to be included.
 
-3. Bug 
+3. Bug 3bc0e0e - cannot sort Z-A on tours.html select feature
 FieldError at /tours/
 Cannot resolve keyword ' -lower_name' into field. Choices are: description, id, image, image_url, lower_name, name, price, sku
 Request Method:	GET

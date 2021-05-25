@@ -25,7 +25,7 @@ def all_tours(request):
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
-                    sortkey = f' -{sortkey}'
+                    sortkey = f'-{sortkey}'
             tours = tours.order_by(sortkey)
 
         if 'q' in request.GET:
