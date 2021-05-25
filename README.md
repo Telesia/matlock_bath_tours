@@ -70,10 +70,19 @@ As a registered user I want to be able to:
 
 
 ## Bugs
-1c5c4b7 - navbar disappeared across pages when changed to {%  include 'navbar.html' %} ?? 
-b4ec991 - Fixed above navbar bug inside this commit. Action: move include tag to within the block content of pages where want
+1. 1c5c4b7 - navbar disappeared across pages when changed to {%  include 'navbar.html' %} ?? 
+2. b4ec991 - Fixed above navbar bug inside this commit. Action: move include tag to within the block content of pages where want
 the navbar to be included.
 
+3. Bug 
+FieldError at /tours/
+Cannot resolve keyword ' -lower_name' into field. Choices are: description, id, image, image_url, lower_name, name, price, sku
+Request Method:	GET
+Request URL:	http://127.0.0.1:8000/tours/?sort=name&direction=desc
+Django Version:	3.2.1
+Exception Type:	FieldError
+Exception Value:	
+Cannot resolve keyword ' -lower_name' into field. Choices are: description, id, image, image_url, lower_name, name, price, sku
 
 ## Credits
 
