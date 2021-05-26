@@ -2,8 +2,13 @@
 <nav class="container-fluid fixed-top navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <!-- Navbar logo -->
-        <a class="navbar-brand" href="{% url 'home' %}"><i class="fas fa-hiking fa-lg"></i>
-            <h2>Matlock Bath Tours</h2>
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <span class="icon">
+                <i class="fas fa-hiking fa-lg"></i>
+            </span>
+            <span>
+                <h2>Matlock Bath Tours</h2>
+            </span>
         </a>
         <!-- Burger button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -48,9 +53,9 @@
                             <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                             <p class="my-0">
                                 {% if grand_total %}
-                                    ${{ grand_total|floatformat:2 }}
+                                    £{{ grand_total|floatformat:2 }}
                                 {% else %}
-                                    $0.00
+                                    £0.00
                                 {% endif %}
                             </p>
                         </div>
@@ -59,5 +64,4 @@
             </ul>
         </div>
 
-    </div>
 </nav>
