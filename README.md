@@ -75,6 +75,8 @@ As a registered user I want to be able to:
 the navbar to be included.
 
 3. Bug 3bc0e0e - cannot sort Z-A on tours.html select feature
+1b28307 - commit that fixed bug (It was a syntax error)
+
 FieldError at /tours/
 Cannot resolve keyword ' -lower_name' into field. Choices are: description, id, image, image_url, lower_name, name, price, sku
 Request Method:	GET
