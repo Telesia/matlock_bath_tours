@@ -36,7 +36,7 @@
             <div class="col-12 col-lg-6">
                 <div class="product-details-container mb-5 mt-md-5">
                     <p class="mb-0">{{ tour.name }}</p>
-                    <p class="lead mb-0 text-left font-weight-bold">${{ tour.price }}</p>
+                    <p class="lead mb-0 text-left font-weight-bold">£{{ tour.price }}</p>
                     <p class="mt-3">{{ tour.description }}</p>
                     <!-- Form to add tour to the shopping bag -->
                     <form class="form" action="{% url 'add_to_bag' tour.id %}" method="POST">
