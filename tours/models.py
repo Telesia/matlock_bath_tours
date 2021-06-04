@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Tour(models.Model):
-    """ Model for Tours in db"""
+    """ Model for Tours """
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     description = models.TextField()
@@ -12,3 +12,14 @@ class Tour(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Review(models.Model):
+    """ Model migration design for reviews """
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+    date_created = models.DateTimeField(default=timezone.now)
+    review = models.TextField()
+
+    class Meta:
+        ordering = ['date_created']

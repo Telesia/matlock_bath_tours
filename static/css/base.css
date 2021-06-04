@@ -87,8 +87,6 @@ header .overlay {
 }
 
 
-
-
 /* ---------- Tours Page ----------*/
 
 .overlay {
@@ -101,7 +99,11 @@ header .overlay {
     z-index: -1;
 }
 
+/* ---------- Shopping Bag ----------*/
 
+.update-link {
+    cursor: pointer;
+}
 
 /* ---------- Media Queries ----------*/
 /* DOESN"T NEED TO BE IN A MQ NOW TBC*/
