@@ -1,0 +1,18 @@
+<script type="text/javascript">
+    // Increase quantity of tours by 1
+    $('.increment-qty').click(function(e) {
+        e.preventDefault();
+        let closetInput = $(this).closest('.input-group').find('.qty_input')[0];
+        let currentValue = parseInt($(closetInput).val());
+        $(closetInput).val(currentValue + 1);
+    });
+
+    // Decrease quantity of tours by 1
+    $('.decrement-qty').click(function(e) {
+        e.preventDefault();
+        let closetInput = $(this).closest('.input-group').find('.qty_input')[0];
+        let currentValue = parseInt($(closetInput).val());
+        $(closetInput).val(currentValue - 1);
+    });
+
+</script>
