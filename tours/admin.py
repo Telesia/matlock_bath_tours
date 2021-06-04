@@ -1,5 +1,15 @@
 from django.contrib import admin
-from .models import Tour
+from .models import Tour, Review
+
+
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = (
+        'title',
+        'review',
+        'user',
+        'tour',
+        'created',
+    )
 
 
 class TourAdmin(admin.ModelAdmin):
@@ -14,3 +24,4 @@ class TourAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Tour, TourAdmin)
+admin.site.register(Review, ReviewAdmin)

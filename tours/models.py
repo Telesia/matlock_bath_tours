@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class Tour(models.Model):
@@ -14,12 +16,18 @@ class Tour(models.Model):
         return self.name
 
 
+# https://medium.com/django-rest/lets-build-a-basic-product-review-backend-with-drf-part-1-652dd9b95485 and MENTOR HELP
 class Review(models.Model):
     """ Model migration design for reviews """
+    title = models.CharField(max_length=255)
+    review = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
-    date_created = models.DateTimeField(default=timezone.now)
-    review = models.TextField()
+    created = models.DateTimeField(default=timezone.now)
 
     class Meta:
-        ordering = ['date_created']
+        ordering = ['created']
+
+    def __str__(self):
+        return self.title
+
