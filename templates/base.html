@@ -46,7 +46,11 @@
 
         <!-- Display space for any flash messages from Django -->
         {% if messages %}
-        <div class="message-container"></div>
+        <div class="message-container">
+            {% for message in messages %}
+                {% include 'includes/toasts/toast_success.html' %}
+            {% endfor %}
+        </div>
         {% endif %}
 
         <!-- Main Page Content -->
@@ -154,6 +158,9 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
         {% block postloadjs %}
+            <script type="text/javascript">
+                $('.toast').toast('show');
+            </script>
         {% endblock %}
     </body>
 </html>

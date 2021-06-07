@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
+from tours.models import Tour
+from django.contrib import messages
 
 
 def view_bag(request):
@@ -8,7 +10,7 @@ def view_bag(request):
 
 def add_to_bag(request, tour_id):
     """ Add a quantity of tours to the shopping bag """
-
+    tour = Tour.objects.get(pk=tour_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
@@ -17,12 +19,14 @@ def add_to_bag(request, tour_id):
         bag[tour_id] += quantity
     else:
         bag[tour_id] = quantity
+        messages.success(request, f'Added {tour.name} to your bag')
 
     request.session['bag'] = bag
     print(request.session['bag'])
     return redirect(redirect_url)
 
 
+# not working just yet
 def adjust_bag(request, tour_id):
     """ Adjust the quantity of tours in the shopping bag """
 
@@ -38,6 +42,7 @@ def adjust_bag(request, tour_id):
     return redirect(reverse('view_bag'))
 
 
+# not working just yet
 def remove_from_bag(request, tour_id):
     """ Remove tour from the shopping bag """
     try:
