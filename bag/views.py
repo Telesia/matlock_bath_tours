@@ -17,15 +17,16 @@ def add_to_bag(request, tour_id):
 
     if tour_id in list(bag.keys()):
         bag[tour_id] += quantity
+        messages.success(request, f'Updated {tour.name} quantity to {bag[tour_id]}')
     else:
         bag[tour_id] = quantity
-        messages.error(request, f'Added {tour.name} to your bag')
+        messages.success(request, f'Added {tour.name} to your bag')
 
     request.session['bag'] = bag
     return redirect(redirect_url)
 
 
-# not working just yet
+# not working just yet & need to add toasts messages if get working
 def adjust_bag(request, tour_id):
     """ Adjust the quantity of tours in the shopping bag """
 
@@ -41,7 +42,7 @@ def adjust_bag(request, tour_id):
     return redirect(reverse('view_bag'))
 
 
-# not working just yet
+# not working just yet & need to add toasts messages if get working
 def remove_from_bag(request, tour_id):
     """ Remove tour from the shopping bag """
     try:
