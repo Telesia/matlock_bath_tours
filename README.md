@@ -56,9 +56,11 @@ As a registered user I want to be able to:
 * book and pay for a tour and receive confirmation
 * search through tours by name or description to find a specific tour to purchase
 * easily view my search results to quickly navigate to a tour I want to explore/purchase
-
-
-
+* easily select the numbers of tours required
+* view tours in shopping bag ready to purchase
+* easily enter my payment information and ensure my details are secure
+* view an order confirmation after checkout
+* receive an email confirmation after checkout
 
 ### Website Owner/Superuser
 
