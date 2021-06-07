@@ -19,10 +19,9 @@ def add_to_bag(request, tour_id):
         bag[tour_id] += quantity
     else:
         bag[tour_id] = quantity
-        messages.success(request, f'Added {tour.name} to your bag')
+        messages.error(request, f'Added {tour.name} to your bag')
 
     request.session['bag'] = bag
-    print(request.session['bag'])
     return redirect(redirect_url)
 
 
