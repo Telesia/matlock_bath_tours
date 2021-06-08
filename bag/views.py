@@ -32,37 +32,41 @@ def adjust_bag(request, tour_id):
 
     tour = get_object_or_404(Tour, pk=tour_id)
     quantity = int(request.POST.get('quantity'))
+    size = None
+    if 'product_size' in request.POST:
+        size = request.POST['product_size']
     bag = request.session.get('bag', {})
 
-    if quantity > 0:
-        bag[tour_id] = quantity
-        messages.success(request, f'Updated {tour.name} quantity to {bag[tour_id]}')
+    if size:
+        if quantity > 0:
+            bag[tour_id]['items_by_size'][size] = quantity
+            messages.success(request,
+                             f'Updated size {size.upper()} {tour.name} quantity to {bag[tour_id]["items_by_size"][size]}')
+        else:
+            del bag[tour_id]['items_by_size'][size]
+            if not bag[tour_id]['items_by_size']:
+                bag.pop(tour_id)
+            messages.success(request, f'Removed size {size.upper()} {tour.name} from your bag')
     else:
-        bag.pop(tour_id)
-        messages.success(request, f'Removed {tour.name} from your bag')
+        if quantity > 0:
+            bag[tour_id] = quantity
+            messages.success(request, f'Updated {tour.name} quantity to {bag[tour_id]}')
+        else:
+            bag.pop(tour_id)
+            messages.success(request, f'Removed {tour.name} from your bag')
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
 
 
-# not working just yet & need to add toasts messages if get working
 def remove_from_bag(request, tour_id):
     """ Remove tour from the shopping bag """
     try:
-        product = get_object_or_404(Tour, pk=tour_id)
-        size = None
-        if 'product_size' in request.POST:
-            size = request.POST['product_size']
+        tour = get_object_or_404(Tour, pk=tour_id)
         bag = request.session.get('bag', {})
 
-        if size:
-            del bag[tour_id]['items_by_size'][size]
-            if not bag[tour_id]['items_by_size']:
-                bag.pop(tour_id)
-            messages.success(request, f'Removed size {size.upper()} {product.name} from your bag')
-        else:
-            bag.pop(tour_id)
-            messages.success(request, f'Removed {product.name} from your bag')
+        bag.pop(tour_id)
+        messages.success(request, f'Removed {tour.name} from your bag')
 
         request.session['bag'] = bag
         return HttpResponse(status=200)
@@ -70,3 +74,5 @@ def remove_from_bag(request, tour_id):
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
+
+
