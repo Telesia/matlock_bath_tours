@@ -96,7 +96,7 @@
                                                         <a class="update-link text-info"><small>Update</small></a>
                                                     </form>
                                                 </td>
-                                                <td class="border-0 align-middle"><a href="#" class="remove-item text-dark" id="remove_{{ item.tour_id }}"><i
+                                                <td class="border-0 align-middle"><a href="{% url 'remove_from_bag' item.tour_id %}" class="remove-item text-dark" id="remove_{{ item.tour_id }}"><i
                                                         class="fa fa-trash"></i></a></td>
                                             </tr>
                                             </tbody>
