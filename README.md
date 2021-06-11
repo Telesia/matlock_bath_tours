@@ -88,6 +88,8 @@ Exception Type:	FieldError
 Exception Value:	
 Cannot resolve keyword ' -lower_name' into field. Choices are: description, id, image, image_url, lower_name, name, price, sku
 
+4. Grand total amount not displaying on checkout template. Variable coming from bag app, contexts.py and context variable name was 'total'.
+
 ## Credits
 
 Media

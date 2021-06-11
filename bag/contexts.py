@@ -4,6 +4,8 @@ from tours.models import Tour
 
 
 def bag_contents(request):
+    """ View adapted from Boutique Ado Project to total the tours in bag and return to template
+    across all apps """
     bag_items = []
     total = 0
     tour_count = 0

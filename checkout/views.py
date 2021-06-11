@@ -11,7 +11,7 @@ def checkout(request):
     # If nothing in bag add an error message
     if not bag:
         messages.error(request, "There's nothing in your bag")
-        return redirect(reverse('products'))
+        return redirect(reverse('all_tours'))
 
     # Create an instance of the OrderForm from forms.py
     order_form = OrderForm()
