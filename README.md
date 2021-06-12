@@ -89,7 +89,7 @@ Exception Value:
 Cannot resolve keyword ' -lower_name' into field. Choices are: description, id, image, image_url, lower_name, name, price, sku
 
 4. Grand total amount not displaying on checkout template. Variable coming from bag app, contexts.py and context variable name was 'total'.
-
+9c939896
 ## Credits
 
 Media
@@ -100,3 +100,5 @@ Hero video acquired from: https://www.pexels.com/ credit: Taryn Elliot
 
 - [Code Institute](https://codeinstitute.net/) Full Stack Frameworks Boutique Ado Project
   - The Hello Django and Boutique Ado projects from the Code Institute Full Stack Development course were used as a guide to help build this project.
+
+- My mentor Spencer Barriball for all his assistance.
