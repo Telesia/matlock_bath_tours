@@ -1,0 +1,1 @@
+web: gunicorn matlock_bath_tours.wsgi:application

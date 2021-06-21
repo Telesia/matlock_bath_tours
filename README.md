@@ -105,7 +105,24 @@ Create a new default database setting: 'default': dj_database_url.parse() and pu
 from config vars in the settings tab.
 Then in IDE terminal need to run migrations using: python3 manage.py migrate
 Then create a superuser: python3 manage.py createsuperuser
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+      'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
+Then install gunicorn which will act as a webserver : pip3 install gunicorn
+Freeze to requirements.
+Create a Procfile and add web: gunicorn matlock_bath_tours.wsgi:application
+In terminal: heroku login  
+Then confirm login
+In settings.py add ALLOWED_HOSTS = ['project-name'] 
 
 
 ## Credits
