@@ -127,9 +127,13 @@ Add all files to git, and push to github
 Then git push heroku master
 If you created your app within the website rather CLI then need to add as remote respository using:
 heroku git:remote -a project-name-on-heroku
-Then try git push heroku master again
+Then try git push heroku master again to deploy
 
-
+Set Up Automatic Deploy when we push to Github
+- Got to heroku.com admin panel and click on Deploy tab
+- In Deployment method click Github and search for the corresponding repository
+- Click connect
+- Then Enable Automatic Deploys below 
 
 
 ## Credits
