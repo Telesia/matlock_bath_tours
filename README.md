@@ -90,6 +90,24 @@ Cannot resolve keyword ' -lower_name' into field. Choices are: description, id, 
 
 4. Grand total amount not displaying on checkout template. Variable coming from bag app, contexts.py and context variable name was 'total'.
 9c939896
+   
+## Deployment
+
+Heroku
+Go to www.heroku.com, create an account and click new app
+Choose a unique name for your project and set geographical zone to nearest to you
+Go to Resources tab and search in add-ons for postgres - chosen free plan for this project
+Return to IDE and install: pip3 install dj_database_url and pip3 install psycopg2-binary
+Then freeze requirements: pip3 freeze > requirements.txt so Heroku knows what it required to deploy the project
+Go to settings.py and import dj_database_url at the top of the file
+Then go to DATABASES in settings.py and comment out default database configuration
+Create a new default database setting: 'default': dj_database_url.parse() and put in your unique Heroku Database URl 
+from config vars in the settings tab.
+Then in IDE terminal need to run migrations using: python3 manage.py migrate
+Then create a superuser: python3 manage.py createsuperuser
+
+
+
 ## Credits
 
 Media
