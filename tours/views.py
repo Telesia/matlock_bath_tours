@@ -63,26 +63,14 @@ def tour_detail(request, tour_id):
 
 def customer_review(request, tour_id):
     """ A view to submit a review of a tour to the db """
-
-    tour = Tour.objects.get(pk=tour_id)
-
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ReviewForm(request.POST)
         if form.is_valid():
-            data = form.save(commit=False)
-            data.review = request.POST["review"]
-            data.user = request.user
-            data.tour = tour
-            data.save()
-            messages.success(request, 'Successfully added review!')
-            return redirect(reverse('tour_detail', args=[tour.id]))
-        else:
-            messages.error(
-                request,
-                'Failed to add review. Please ensure the form is valid.')
-    else:
+            form.save()
+            return redirect('tour_detail')
+    form = ReviewForm()
+    context = {
+        'form': form
+    }
 
-        form = ReviewForm()
-        template = 'tours/tour_detail.html'
-
-    return render(request, template, {"form": form})
+    return render(request, 'tours/tour_detail.html', context)

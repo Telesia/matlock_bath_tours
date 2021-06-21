@@ -1,3 +1,17 @@
+h1 {
+  color: pink;
+}
+
+
+.title_checkout {
+  color: darkred;
+}
+
+.title {
+  font-family: AppleGothic;
+  color: black;
+}
+
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;

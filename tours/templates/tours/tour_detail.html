@@ -115,9 +115,9 @@
         <div class="row row mt-5">
             <div class="col-sm-12">
                 <h2>Write your review</h2>
-                    <form action="{% url 'customer_review' tour.pk %}" method="POST">
+                    <form action="" method="POST">
                     {% csrf_token %}
-                    <textarea name="comment" minlength="10" required></textarea>
+                    {{ form }}
                     <input type="submit" class="btn btn-primary" value="Submit">
                 </form>
             </div>
