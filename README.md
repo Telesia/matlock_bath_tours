@@ -123,6 +123,13 @@ Create a Procfile and add web: gunicorn matlock_bath_tours.wsgi:application
 In terminal: heroku login  
 Then confirm login
 In settings.py add ALLOWED_HOSTS = ['project-name'] 
+Add all files to git, and push to github
+Then git push heroku master
+If you created your app within the website rather CLI then need to add as remote respository using:
+heroku git:remote -a project-name-on-heroku
+Then try git push heroku master again
+
+
 
 
 ## Credits
