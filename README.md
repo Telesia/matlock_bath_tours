@@ -135,7 +135,7 @@ Set Up Automatic Deploy when we push to Github
 - Click connect
 - Then Enable Automatic Deploys below 
 
-TEST2
+TEST3
 
 ## Credits
 
