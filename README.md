@@ -94,17 +94,17 @@ Cannot resolve keyword ' -lower_name' into field. Choices are: description, id, 
 ## Deployment
 
 Heroku
-Go to www.heroku.com, create an account and click new app
-Choose a unique name for your project and set geographical zone to nearest to you
-Go to Resources tab and search in add-ons for postgres - chosen free plan for this project
-Return to IDE and install: pip3 install dj_database_url and pip3 install psycopg2-binary
-Then freeze requirements: pip3 freeze > requirements.txt so Heroku knows what it required to deploy the project
-Go to settings.py and import dj_database_url at the top of the file
-Then go to DATABASES in settings.py and comment out default database configuration
-Create a new default database setting: 'default': dj_database_url.parse() and put in your unique Heroku Database URl 
+- Go to www.heroku.com, create an account and click new app
+- Choose a unique name for your project and set geographical zone to nearest to you
+- Go to Resources tab and search in add-ons for postgres - chosen free plan for this project
+- Return to IDE and install: pip3 install dj_database_url and pip3 install psycopg2-binary
+- Then freeze requirements: pip3 freeze > requirements.txt so Heroku knows what it required to deploy the project
+- Go to settings.py and import dj_database_url at the top of the file
+- Then go to DATABASES in settings.py and comment out default database configuration
+- Create a new default database setting: 'default': dj_database_url.parse() and put in your unique Heroku Database URl 
 from config vars in the settings tab.
-Then in IDE terminal need to run migrations using: python3 manage.py migrate
-Then create a superuser: python3 manage.py createsuperuser
+- Then in IDE terminal need to run migrations using: python3 manage.py migrate
+- Then create a superuser: python3 manage.py createsuperuser
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
@@ -117,23 +117,24 @@ else:
         }
     }
 
-Then install gunicorn which will act as a webserver : pip3 install gunicorn
-Freeze to requirements.
-Create a Procfile and add web: gunicorn matlock_bath_tours.wsgi:application
-In terminal: heroku login  
-Then confirm login
-In settings.py add ALLOWED_HOSTS = ['project-name'] 
-Add all files to git, and push to github
-Then git push heroku master
-If you created your app within the website rather CLI then need to add as remote respository using:
-heroku git:remote -a project-name-on-heroku
-Then try git push heroku master again to deploy
+- Then install gunicorn which will act as a webserver : pip3 install gunicorn
+- Freeze to requirements.
+- Create a Procfile and add web: gunicorn matlock_bath_tours.wsgi:application
+- In terminal: heroku login  
+- Then confirm login
+- In settings.py add ALLOWED_HOSTS = ['project-name'] 
+- Add all files to git, and push to github
+- Then git push heroku master
+- If you created your app within the website rather CLI then need to add as remote respository using:
+  heroku git:remote -a project-name-on-heroku
+- Then try git push heroku master again to deploy
 
 Set Up Automatic Deploy when we push to Github
 - Got to heroku.com admin panel and click on Deploy tab
 - In Deployment method click Github and search for the corresponding repository
 - Click connect
 - Then Enable Automatic Deploys below 
+
 
 
 ## Credits
